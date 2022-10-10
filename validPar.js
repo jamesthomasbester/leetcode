@@ -1,9 +1,9 @@
 var isValid = function(s) {
-    if((s.includes('[') && !s.match(/\[(.*?)([^{^(^}^)])\]/)) || (s.includes('{') && !s.match(/\{(.*?)([^[^(^\]^)])\}/)) || (s.includes('(') && !s.match(/\((.*?)([^[^{^\]^}])\)/))){
-        return false;
+    if(s.match(/((\(\)|\{\}|\[\]|\{(\[\])\}|\{(\(\))\}|\{(\{\})\}))/g)){
+        return true;
     } 
     else{
-        return true;
+        return false;
     }
 };
 
