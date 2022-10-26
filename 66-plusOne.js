@@ -5,18 +5,21 @@
  */
  var plusOne = function(digits) {
     let count = digits.length -1
-    if(digits[count] != 9){
-        digits[count] += 1
-    }else{
-        while(digits[count] == 9){
+    let addition = 0
+    while(digits[count] == 9){
+        console.log(digits[count])
+        if(count == 0 ){
+            digits[count] = 1
+            digits.push(0)
+        }else if(digits[count-1] != 9){
             digits[count] = 0
-            if(count == digits.length){
-                digits.push(0)
-            }else{
-            digits[count + 1] = 0
-            }
+            digits[count - 1] = digits[count - 1] + 1
+            count--
+        }else{
+            digits[count] = 0
             count--
         }
+
     }
     return digits
 };
