@@ -6,7 +6,6 @@
  var mySqrt = function(x) {
     let root = 0;
     while (root * root <= x){
-        console.log(root * root)
         root += 1;
     }
     return root - 1;
