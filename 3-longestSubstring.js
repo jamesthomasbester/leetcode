@@ -4,22 +4,27 @@
  * @return {number}
  */
  var lengthOfLongestSubstring = function(s) {
-    var memory = []
-    var length = 0;
-    for (let i = 0; i < s.length; i++) {
-        console.log("current string: " + s[i])
-        for (let n = 0; n < memory.length; n++) {
-            console.log("current memory: " + memory[n])
-            if(memory[n] != s[i]){
-                length += 1;
-                console.log(length)
-            }else{
-                length = 1;
-                console.log(length)
+    if(!s){
+        return 0;
+    }else{
+        var length = 0;
+        var map = []
+        for (let i = 0; i < s.length; i++) {
+
+            for(let n = 0; n < s.length; n++){
+                if(s[i] != s[n]){
+                    length +=1;
+                }else{
+                    map.push(s[i], length)
+                    length = 0;
+                }
+                if(length == i - (s.length -1)){
+                    map.push(s[i], length)
+                    length = 0
+                }
             }
-            
         }
-        memory.push(s[i])
+        console.log(map)
     }
 };
 
