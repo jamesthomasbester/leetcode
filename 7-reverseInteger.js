@@ -4,16 +4,28 @@
  * @return {number}
  */
  var reverse = function(x) {
+    if(x.length > 9){
+        return 0
+    }
+    let negative = false;
     let array = Array.from(String(x), Number)
     let returnArray = []
+    if(x < 0){
+        negative = true;
+        array.shift()
+    }
+    if(negative){
+        returnArray.push("-")
+    }
     for (let i = array.length-1; i >= 0; i--){
-        console.log(i)
-       if(i != array.length-1 && array[i] != 0){
-            console.log("push")
+       if(array[i] == 0 && i == array.length-1){
+            
+       }
+       else{
             returnArray.push(array[i])
        }
     }
-    console.log(returnArray)
+    return returnArray.join("")
 };
 
-reverse(1011)
+reverse(-10110)
