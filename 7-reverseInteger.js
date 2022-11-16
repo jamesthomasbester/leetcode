@@ -4,9 +4,6 @@
  * @return {number}
  */
  var reverse = function(x) {
-    if(x.length > 9){
-        return 0
-    }
     let negative = false;
     let array = Array.from(String(x), Number)
     let returnArray = []
@@ -25,7 +22,12 @@
             returnArray.push(array[i])
        }
     }
-    return returnArray.join("")
+    if(returnArray.join("") > 2147483647 || returnArray.join("") < -2147483647){
+        return 0
+    }else{
+        return returnArray.join("")
+    }
+    
 };
 
-reverse(-10110)
+console.log(reverse(1534236469))
